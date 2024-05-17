@@ -1,0 +1,52 @@
+﻿<Window x:Class="TextEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TextEditor"
+        mc:Ignorable="d"
+        Title="TextEditor" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    
+    <DockPanel>
+        <Menu x:Name="mnuMain" DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Command="ApplicationCommands.Open"/>
+                <MenuItem Command="ApplicationCommands.Save"/>
+                <Separator/>
+                <MenuItem x:Name="mnuClose" Header="Close" Click="mnuClose_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Edit">
+                <MenuItem Command="ApplicationCommands.Copy"/>
+                <MenuItem Command="ApplicationCommands.Paste"/>
+                <MenuItem Command="ApplicationCommands.Cut"/>
+            </MenuItem>
+        </Menu>
+
+        <StackPanel DockPanel.Dock="Bottom">
+            <TextBlock Background="LightGray" Text="Ready..." IsEnabled="False"/>
+        </StackPanel>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Background="AliceBlue">
+
+            </StackPanel>
+            <GridSplitter Grid.Column="0" Width="10" Background="Red"/>
+            <TextBox x:Name="txtEditor" Grid.Column="1" Background="White"
+                     AcceptsReturn="True"/>
+        </Grid>
+    </DockPanel>
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open"
+                        CanExecute="OpenCmdCanExecute" Executed="OpenCmdExecuted"/> <!-- 2 handlers needed -->
+
+        <CommandBinding Command="ApplicationCommands.Save"
+                        CanExecute="SaveCmdCanExecute" Executed="SaveCmdExecuted"/> <!-- 2 handlers needed -->
+    </Window.CommandBindings>
+
+</Window>
