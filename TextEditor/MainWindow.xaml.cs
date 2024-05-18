@@ -67,5 +67,20 @@ namespace TextEditor
                 File.WriteAllText(s.FileName, txtEditor.Text);
             }
         }
+
+        private void mnuSpellChecker_Click(object sender, RoutedEventArgs e)
+        {
+            string strtemp = string.Empty;
+            SpellingError err = txtEditor.GetSpellingError(txtEditor.CaretIndex);
+            if (err != null)
+            {
+                foreach(string s in err.Suggestions)
+                {
+                    strtemp += $"{s}\n";
+                }
+                lblHints.Content = strtemp;
+            }
+
+        }
     }
 }

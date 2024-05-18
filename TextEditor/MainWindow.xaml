@@ -20,6 +20,7 @@
                 <MenuItem Command="ApplicationCommands.Paste"/>
                 <MenuItem Command="ApplicationCommands.Cut"/>
             </MenuItem>
+            <MenuItem x:Name="mnuSpellChecker" Header="SpellChecker" Click="mnuSpellChecker_Click"/>
         </Menu>
 
         <StackPanel DockPanel.Dock="Bottom">
@@ -33,11 +34,13 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0" Background="AliceBlue">
-
+                <Label x:Name="lblSpelling" Content="Spelling hints" Margin="5,5,0,5"/>
+                <Label x:Name="lblHints" Content="" Margin="5"/>
             </StackPanel>
             <GridSplitter Grid.Column="0" Width="10" Background="Red"/>
             <TextBox x:Name="txtEditor" Grid.Column="1" Background="White"
-                     AcceptsReturn="True"/>
+                     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                     AcceptsReturn="True" SpellCheck.IsEnabled="True"/>
         </Grid>
     </DockPanel>
     
