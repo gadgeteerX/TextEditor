@@ -20,11 +20,13 @@
                 <MenuItem Command="ApplicationCommands.Paste"/>
                 <MenuItem Command="ApplicationCommands.Cut"/>
             </MenuItem>
-            <MenuItem x:Name="mnuSpellChecker" Header="SpellChecker" Click="mnuSpellChecker_Click"/>
+            <MenuItem x:Name="mnuSpellChecker" Header="SpellChecker" 
+                      MouseEnter="mnuSpellChecker_MouseEnter" MouseLeave="mnuSpellChecker_MouseLeave"
+                      Click="mnuSpellChecker_Click"/>
         </Menu>
 
         <StackPanel DockPanel.Dock="Bottom">
-            <TextBlock Background="LightGray" Text="Ready..." IsEnabled="False"/>
+            <TextBlock x:Name="txtStatusBar" Background="LightGray" Text="Ready..." IsEnabled="False"/>
         </StackPanel>
 
         <Grid>

@@ -82,5 +82,17 @@ namespace TextEditor
             }
 
         }
+
+        private void mnuSpellChecker_MouseEnter(object sender, MouseEventArgs e)
+        {
+            txtStatusBar.Text = "put cursor over spelling error and press SpellChecker...";
+            txtStatusBar.FontWeight = FontWeights.Bold;
+        }
+
+        private void mnuSpellChecker_MouseLeave(object sender, MouseEventArgs e)
+        {
+            txtStatusBar.Text = "Ready...";
+            txtStatusBar.FontWeight = FontWeights.Regular;
+        }
     }
 }
